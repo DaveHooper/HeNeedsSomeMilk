@@ -25,6 +25,8 @@ namespace Soundboard
             
         }
 
+
+
         private void Button1_Click(object sender, EventArgs e)
         {
             Console.WriteLine("bepis");
@@ -70,6 +72,21 @@ namespace Soundboard
             outputDevice = null;
             audioFile.Dispose();
             audioFile = null;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            outputDevice?.Stop();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
