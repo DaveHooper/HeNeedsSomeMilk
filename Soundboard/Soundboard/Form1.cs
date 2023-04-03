@@ -84,7 +84,31 @@ namespace Soundboard
 
         }
 
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("bepis 3");
+        }
+
+        private void addButtonStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            Console.WriteLine("bepis 2");
+            DialogResult result = openFileDialog1.ShowDialog();
+            Console.WriteLine(openFileDialog1.FileName);
+            string filePath = openFileDialog1.FileName;
+            string fileName = filePath.Split('\\').Last();
+            Console.WriteLine(fileName);
+            SoundFile newSound = new SoundFile(filePath, fileName);
+
+
+        }
+
+        private void addMuttonStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("mepis");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
