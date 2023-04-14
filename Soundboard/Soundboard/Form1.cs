@@ -34,6 +34,13 @@ namespace Soundboard
             
         }
 
+        private void ButtonClick(object sender, EventArgs e)
+        {
+            SoundButton button = sender as SoundButton;
+            Console.WriteLine(button.Text + " " + button.path);
+            PlaySound(button.path);
+        }
+
         private void PlaySound(string fileName)
         {
             if (outputDevice == null)
@@ -98,7 +105,11 @@ namespace Soundboard
             string filePath = openFileDialog1.FileName;
             string fileName = filePath.Split('\\').Last();
             Console.WriteLine(fileName);
-            SoundFile newSound = new SoundFile(filePath, fileName);
+            SoundButton newButton = new SoundButton(filePath);
+            newButton.Text = mainBoard.Controls.Count.ToString();
+            newButton.Click += ButtonClick;
+            mainBoard.Controls.Add(newButton);
+
 
 
         }
@@ -106,6 +117,10 @@ namespace Soundboard
         private void addMuttonStripMenuItem_Click(object sender, EventArgs e)
         {
             Console.WriteLine("mepis");
+            Button1.Text = "mepis";
+            Button newButton = new Button();
+            mainBoard.Controls.Add(newButton);
+            mainBoard.Controls[mainBoard.Controls.Count - 1].Text = "mepis" + mainBoard.Controls.Count;
         }
 
         private void Form1_Load(object sender, EventArgs e)
